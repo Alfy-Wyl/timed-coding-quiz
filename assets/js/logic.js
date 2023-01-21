@@ -1,13 +1,17 @@
 // Create Variables to handle status of the quiz
-
-
-
-
+let currentQuestionIndex = 0;
+let time = questions.length * 30;
+let timerID;
 
 
 // Create Selectors using Single Element Selector to target HTML Elements
-
-
+let questionsElement = document.getElementById('questions');
+let timerEelement = document.getElementById('time');
+let optionsElement = document.getElementById('options');
+let startButton = document.getElementById('start');
+let submitButton = document.getElementById('submit');
+let initialElement = document.getElementById('initials');
+let feedBackElement = document.getElementById('feedback');
 
 
 
