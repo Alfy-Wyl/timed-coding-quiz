@@ -13,7 +13,9 @@ let submitButton = document.getElementById('submit');
 let initialElement = document.getElementById('initials');
 let feedBackElement = document.getElementById('feedback');
 
-
+// Add wav files to handle Right and Wrong answers
+let sfxCorrect = new Audio('assets/sfx/correct.wav');
+let sfxInCorrect = new Audio('assets/sfx/incorrect.wav');
 
 // Create Function to grab the Questions
 function getQuestion(){
