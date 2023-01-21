@@ -1,5 +1,5 @@
 // Create Variable for questions in an Array of Objects
-let question = [
+let questions = [
     {
         "title": 'Javascript is an _______ language?',
         "options": ['Object-Oriented', 'Object-Based', 'Spoken', 'None of the above'],
@@ -27,7 +27,7 @@ let question = [
     {
         "title": 'Which function is used to serialize an object into a JSON string in Javascript?',
         "options": ['stringify()', 'parse()', 'convert()', 'object{}' ],
-        "answer": 'stringify'
+        "answer": 'stringify()'
     },
 
 ]
