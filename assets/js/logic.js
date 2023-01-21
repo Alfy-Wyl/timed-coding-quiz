@@ -43,14 +43,19 @@ function getQuestion(){
 }
 
 
-// Create Function to handle Question Click by User
-function questionClick(){
+// Create Function to handle Quiz Start by User
+function startQuiz(){
+    let startScreenElement = document.getElementById('start-screen');
+    startScreenElement.setAttribute('class', 'hide');
+
+    questionsElement.removeAttribute('class');
+
+    timerID = setInterval(timerCountDown, 1000)
 
 }
 
-
-// Create Function to handle Quiz Start by User
-function startQuiz(){
+// Create Function to handle Question Click by User
+function questionClick(){
 
 }
 
