@@ -16,6 +16,37 @@ let feedBackElement = document.getElementById('feedback');
 // Add wav files to handle Right and Wrong answers
 let sfxCorrect = new Audio('assets/sfx/correct.wav');
 let sfxInCorrect = new Audio('assets/sfx/incorrect.wav');
+
+
+// Create Function to handle Question Click by User
+function questionClick(){
+    if(this.value !== questions[currentQuestionIndex].answer) {
+        time -= 30;
+
+        if(time < 0) {
+            time = 0;
+        }
+
+        timerElement.textContent = time;
+
+        feedBackElement.textContent = 'Wrong'
+        sfxInCorrect.play();
+    }   else {
+        feedBackElement.textContent = 'Correct!';
+        sfxCorrect.play();
+    }
+
+    feedBackElement.setAttribute('class', 'feedback');
+
+    setTimeout(function(){
+        feedBackElement.setAttribute('class', 'feedback hide');
+    }, 1000);
+
+
+
+
+
+}
   
 
 // Create Function to grab the Questions
@@ -23,10 +54,11 @@ function getQuestion(){
     let currentQuestion = questions[currentQuestionIndex];
     let questionElement = document.getElementById('question-title');
 
-    questionElement.textContent = currentQuestion.question;
+    questionElement.textContent = currentQuestion.title;
 
     optionsElement.innerHTML = '';
 
+    // Create a For Each Loop to loop through the Array of options
     currentQuestion.options.forEach(function(option, index) {
         let optionButton = document.createElement('button');
         
@@ -42,6 +74,35 @@ function getQuestion(){
 
 }
 
+// Create Function to handle End Quiz
+function endQuiz(){
+    clearInterval(timerID);
+
+    let endScreenElement = document.getElementById('end-screen');
+    endScreenElement.removeAttribute('class');
+
+    let finalScoreElement = document.getElementById('final-score');
+    finalScoreElement.textContent = time;
+
+    questionsElement.setAttribute('class', 'hide');
+
+}
+
+
+// Create Function to handle Timer Countdown
+function timerCountDown(){
+    time--;
+    timerElement.textContent = time;
+
+    // Create an If Statement to handle interactivity when quiz ends
+    if(time <= 0){
+        endQuiz();
+    }
+
+
+
+}
+
 
 // Create Function to handle Quiz Start by User
 function startQuiz(){
@@ -52,24 +113,13 @@ function startQuiz(){
 
     timerID = setInterval(timerCountDown, 1000)
 
-}
+    timerElement.textContent = time;
 
-// Create Function to handle Question Click by User
-function questionClick(){
-
-}
-
-
-// Create Function to handle End Quiz
-function endQuiz(){
+    getQuestion();
 
 }
 
 
-// Create Function to handle Timer Countdown
-function timerCountDown(){
-
-}
 
 
 // Create Function to handle Saving Highscore
