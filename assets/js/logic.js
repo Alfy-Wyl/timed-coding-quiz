@@ -42,9 +42,13 @@ function questionClick(){
         feedBackElement.setAttribute('class', 'feedback hide');
     }, 1000);
 
+    currentQuestionIndex++;
 
-
-
+    if(currentQuestionIndex === questions.length) {
+        endQuiz()
+    } else {
+        getQuestion();
+    }
 
 }
   
@@ -97,10 +101,7 @@ function timerCountDown(){
     // Create an If Statement to handle interactivity when quiz ends
     if(time <= 0){
         endQuiz();
-    }
-
-
-
+    } 
 }
 
 
@@ -121,9 +122,24 @@ function startQuiz(){
 
 
 
-
 // Create Function to handle Saving Highscore
-function saveHighscore(){
+function saveHighScore(){
+    let initials = initialElement.value.trim();
+    console.log(initials);
+
+    // Create Condition
+    if(initials !== ''){
+        let highScores = JSON.parse(localStorage.getItem('highscores')) || [];
+        let newScore = {
+            score: time,
+            initials: initials
+        }
+
+        highScores.push(newScore);
+        localStorage.setItem('highscores', JSON.stringify(highScores));
+
+        window.location.href = 'highscores.html';
+    }
 
 }
 
