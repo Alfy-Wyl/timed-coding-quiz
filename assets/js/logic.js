@@ -6,7 +6,7 @@ let timerID;
 
 // Create Selectors using Single Element Selector to target HTML Elements
 let questionsElement = document.getElementById('questions');
-let timerEelement = document.getElementById('time');
+let timerElement = document.getElementById('time');
 let optionsElement = document.getElementById('options');
 let startButton = document.getElementById('start');
 let submitButton = document.getElementById('submit');
@@ -16,9 +16,29 @@ let feedBackElement = document.getElementById('feedback');
 // Add wav files to handle Right and Wrong answers
 let sfxCorrect = new Audio('assets/sfx/correct.wav');
 let sfxInCorrect = new Audio('assets/sfx/incorrect.wav');
+  
 
 // Create Function to grab the Questions
 function getQuestion(){
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionElement = document.getElementById('question-title');
+
+    questionElement.textContent = currentQuestion.question;
+
+    optionsElement.innerHTML = '';
+
+    currentQuestion.options.forEach(function(option, index) {
+        let optionButton = document.createElement('button');
+        
+        optionButton.setAttribute('class', 'option');
+        optionButton.setAttribute('value',  option);
+
+        optionButton.textContent = `${index + 1}. ${option}`
+
+        optionButton.addEventListener('click', questionClick);
+
+        optionsElement.append(optionButton);
+    })
 
 }
 
