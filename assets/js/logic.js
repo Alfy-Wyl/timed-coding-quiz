@@ -1,6 +1,6 @@
 // Create Variables to handle status of the quiz
 let currentQuestionIndex = 0;
-let time = questions.length * 30;
+let time = questions.length * 10;
 let timerID;
 
 
@@ -21,7 +21,7 @@ let sfxInCorrect = new Audio('assets/sfx/incorrect.wav');
 // Create Function to handle Question Click by User
 function questionClick() {
     if(this.value !== questions[currentQuestionIndex].answer) {
-        time -= 30;
+        time -= 10;
 
         if(time < 0) {
             time = 0;
