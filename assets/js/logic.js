@@ -19,7 +19,7 @@ let sfxInCorrect = new Audio('assets/sfx/incorrect.wav');
 
 
 // Create Function to handle Question Click by User
-function questionClick(){
+function questionClick() {
     if(this.value !== questions[currentQuestionIndex].answer) {
         time -= 30;
 
@@ -39,7 +39,7 @@ function questionClick(){
     feedBackElement.setAttribute('class', 'feedback');
 
     setTimeout(function(){
-        feedBackElement.setAttribute('class', 'feedback hide');
+        feedBackElement.setAttribute('class', 'feedback hide')
     }, 1000);
 
     currentQuestionIndex++;
@@ -56,9 +56,9 @@ function questionClick(){
 // Create Function to grab the Questions
 function getQuestion(){
     let currentQuestion = questions[currentQuestionIndex];
-    let questionElement = document.getElementById('question-title');
+    let titleElement = document.getElementById('question-title');
 
-    questionElement.textContent = currentQuestion.title;
+    titleElement.textContent = currentQuestion.title;
 
     optionsElement.innerHTML = '';
 
@@ -146,6 +146,9 @@ function saveHighScore(){
 
 // Create Function to check when user enters initials
 function checkForEnter(event){
+    if(event.key === 'Enter') {
+        saveHighScore();
+    }
 
 }
 
@@ -156,10 +159,10 @@ startButton.addEventListener("click", startQuiz);
 
 
 // Create an Event Listener to handle the submit button when it is clicked
-submitButton.addEventListener("click", saveHighscore);
+submitButton.addEventListener("click", saveHighScore);
 
 
 
 // Create an Event Listener to handle the user initials input
-initialElement.addEventListener("click", checkForEnter);
+initialElement.addEventListener("keyup", checkForEnter);
  
