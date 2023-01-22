@@ -49,4 +49,7 @@ https://alfy-wyl.github.io/timed-coding-quiz/
 
 ## Screenshot
 
+<img width="1440" alt="Screenshot 2023-01-22 at 17 21 47" src="https://user-images.githubusercontent.com/118228946/213930366-a2aa2c84-8dab-424d-8123-b4bf5e0d4b50.png">
+
+
 
