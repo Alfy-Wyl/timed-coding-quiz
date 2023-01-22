@@ -42,6 +42,8 @@ MIT
 
 ## Link
 
+https://alfy-wyl.github.io/timed-coding-quiz/
+
 
 
 
